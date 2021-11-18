@@ -1,10 +1,12 @@
 import React from 'react';
-import { Layout } from 'antd';
 import BaseLayout from './view/components/basics/base_layout';
+import LearnComponent from './view/learn/learn_component';
 
 function App() {
   return (
-    <BaseLayout/>
+    <BaseLayout>
+      <LearnComponent/>
+    </BaseLayout>
   );
 }
 
