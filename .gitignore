@@ -1,4 +1,6 @@
 .DS_STORE
+firebase
+cmd.bat
 node_modules
 scripts/flow/*/.flowconfig
 .flowconfig
