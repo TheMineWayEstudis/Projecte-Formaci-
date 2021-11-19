@@ -1,5 +1,5 @@
 import { Button, Card } from 'antd'
-import Activity from '../dialog_classes/Activity'
+import Activity from '../content/Activity'
 
 export default function ActivityComponent(activity: Activity, next: () => void, previous: () => void) {
     return (

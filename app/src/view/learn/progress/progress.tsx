@@ -1,6 +1,6 @@
 import { Card, Steps } from 'antd'
 import React from 'react'
-import Activity from '../dialog_classes/Activity';
+import Activity from '../content/Activity';
 
 export default function Progress(activities: Activity[], current: number, setProgress: (n: number) => void, percent: number) {
     const { Step } = Steps;

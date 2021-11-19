@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd'
 import React, { useState } from 'react'
 import ActivityComponent from './activity/activity_component'
-import Activity from './dialog_classes/Activity';
+import Activity from './content/Activity';
 import Progress from './progress/progress'
 
 export default function LearnComponent() {
