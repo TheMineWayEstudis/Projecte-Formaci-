@@ -1,3 +1,4 @@
+import CookiesService from "../../../services/cookies_service";
 import Activities from "./Activities";
 import Activity from "./Activity";
 
@@ -13,6 +14,6 @@ export default class LearningPaths {
     }
 
     static getProgress(learningPathId: string): number {
-        return 0;
+        return CookiesService.get(`LearningPath_${learningPathId}`, 0) as number;
     }
 }
