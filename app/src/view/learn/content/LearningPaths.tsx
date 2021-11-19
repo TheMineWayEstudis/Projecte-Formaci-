@@ -8,12 +8,19 @@ export default class LearningPaths {
             'F1': {
                 name: "Instal·lació de WordPress",
                 activities: Activities.F1Activities,
-                progress: this.getProgress('F1'),
+                progress: Math.floor((this.getProgress('F1') * 100) / Activities.F1Activities.length),
             },
         }
     }
 
     static getProgress(learningPathId: string): number {
         return CookiesService.get(`LearningPath_${learningPathId}`, 0) as number;
+    }
+
+    static updateProgress(learningPathId: string, set: number, bypass?: boolean): number {
+        const progress: number = CookiesService.get(`LearningPath_${learningPathId}`, 0) as number;
+        if(progress >= set && !bypass) return progress;
+
+        return CookiesService.setOrUpdate(`LearningPath_${learningPathId}`, set) as number;
     }
 }
