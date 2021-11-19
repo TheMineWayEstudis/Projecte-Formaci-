@@ -2,7 +2,7 @@ import { Card, Steps } from 'antd'
 import React from 'react'
 import Activity from '../content/Activity';
 
-export default function Progress(activities: Activity[], current: number, setProgress: (n: number) => void, percent: number) {
+export default function ProgressComponent(activities: Activity[], current: number, setProgress: (n: number) => void, percent: number) {
     const { Step } = Steps;
 
     let c: number = 0;

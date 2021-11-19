@@ -1,4 +1,6 @@
 import { ActivityContent } from "./ActivityContent";
+import Activities from "./Activities";
+import LearningPaths from "./LearningPaths";
 
 export default class Activity {
     content: ActivityContent;
@@ -13,34 +15,12 @@ export default class Activity {
     }
 
     // Crea una nova instància de la classe 'Activity' i l'emmagatzema a memoria amb l'índex 'id'
-    private static create(id: string, name: string, content: ActivityContent): Activity {
+    static create(id: string, name: string, content: ActivityContent): Activity {
         return new Activity(id, name, content);
     }
 
-    // Crea totes les activitats
-    private static createActivities(): Activity[] {
-        return [
-            Activity.create(
-                'install-0',
-                'Instal·lar WordPress',
-                new ActivityContent(
-                    'Instal·lació',
-                    '...',
-                ),
-            ),
-            Activity.create(
-                'install-1',
-                'Instal·lar WordPress P2',
-                new ActivityContent(
-                    'Instal·lació 2',
-                    '...',
-                ),
-            ),
-        ];
-    }
-
-    public static getActivities(): Activity[] {
-        if (!this.activities) this.activities = this.createActivities();
+    public static getActivities(learningPath: string): Activity[] {
+        if (!this.activities) this.activities = LearningPaths.values[learningPath].activities;
         return this.activities;
     }
 }
