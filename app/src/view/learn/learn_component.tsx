@@ -21,7 +21,7 @@ export default function LearnComponent() {
                 {
                     Object.keys(LearningPaths.values).map((id: string) => {
                         return (
-                            <Col sm={24} xl={6}>
+                            <Col sm={24} xl={6} style={{width: '100%'}}>
                                 <Card hoverable onClick={() => {
                                     setLearningPath(id);
                                 }}>
@@ -45,16 +45,16 @@ export default function LearnComponent() {
 
     return (
         <Row gutter={[24, 24]}>
-            <Col sm={24}>
+            <Col sm={24} style={{width: '100%'}}>
                 <Button onClick={() => { setLearningPath(null) }}>
                     <LeftOutlined />
                     {" Enrere"}
                 </Button>
             </Col>
-            <Col sm={24} xl={6}>
+            <Col sm={24} xl={6} style={{width: '100%'}}>
                 {ProgressComponent(activities, currentActivity, setProgress, percent)}
             </Col>
-            <Col sm={24} xl={18}>
+            <Col sm={24} xl={18} style={{width: '100%'}}>
                 {ActivityComponent(activity(), next, previous)}
             </Col>
         </Row>
