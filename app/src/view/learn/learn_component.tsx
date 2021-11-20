@@ -1,5 +1,5 @@
 import { LeftOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Row, Progress, Modal } from 'antd'
+import { Button, Card, Col, Row, Progress, Modal, Popconfirm } from 'antd'
 import React, { useState } from 'react'
 import CookiesService from '../../services/cookies_service';
 import ActivityComponent from './activity/activity_component'
@@ -24,6 +24,7 @@ export default function LearnComponent() {
                         return (
                             <Col sm={24} xl={6} style={{ width: '100%' }}>
                                 <Card hoverable onClick={() => {
+                                    setCurrentActivity(null);
                                     setLearningPath(id);
                                 }}>
                                     <h2 style={{ textAlign: 'center' }}>{LearningPaths.values[id].name}</h2>
@@ -53,11 +54,21 @@ export default function LearnComponent() {
                         <LeftOutlined />
                         {" Enrere"}
                     </Button>
-                    <Button danger onClick={() => {
-                        LearningPaths.updateProgress(learningPath, 0, true);
-                    }}>
-                        {"Restableix el progrés"}
-                    </Button>
+                    <Popconfirm
+                        placement='bottom'
+                        title="Segur que vols restablir el progrés?"
+                        okText="Sí, esborrar"
+                        cancelText="No"
+                        onConfirm={() => {
+                            LearningPaths.updateProgress(learningPath, 0, true);
+                            CookiesService.setOrUpdate(`LearningPathProgress_${learningPath}`, 0);
+                            setLearningPath(null);
+                        }}
+                    >
+                        <Button danger>
+                            {"Restableix el progrés"}
+                        </Button>
+                    </Popconfirm>
                 </Col>
                 <Col sm={24} xl={6} style={{ width: '100%' }}>
                     {ProgressComponent(activities, currentActivity, setProgress, percent)}
@@ -78,10 +89,12 @@ export default function LearnComponent() {
         if (c + 1 >= activities.length) {
             LearningPaths.updateProgress(learningPath, c + 1);
             Modal.success({
+                centered: true,
+                closable: true,
                 content: '',
                 title: 'Has completat la ruta d\'aprenentatge amb èxit',
                 okText: 'Tornar a les rutes d\'aprenentatge',
-                onOk: () => {setLearningPath(null)}
+                onOk: () => { setLearningPath(null) }
             });
             return;
         }
