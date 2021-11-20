@@ -7,23 +7,21 @@ import TextSection from "./TextSection";
  * Es fa servir per crear seccions de text
  */
 export default class TextWithMediaSection implements IActivityContent {
-    textComponent: TextSection;
+    component: IActivityContent;
     media: IMedia;
-    customWidth?: number;
 
-    constructor(textComponent: TextSection, media: IMedia, customWidth?: number) {
+    constructor(component: IActivityContent, media: IMedia) {
         this.media = media;
-        this.textComponent = textComponent;
-        this.customWidth = customWidth;
+        this.component = component;
     }
 
     get(): any {
         return (
             <Row gutter={24}>
-                <Col md={this.customWidth === undefined ? 12 : this.customWidth}>
-                    {this.textComponent.get()}
+                <Col sm={24} lg={12} xl={12} xxl={16}>
+                    {this.component.get()}
                 </Col>
-                <Col>
+                <Col sm={24} lg={12} xl={12} xxl={8}>
                     {this.media.get()}
                 </Col>
             </Row>

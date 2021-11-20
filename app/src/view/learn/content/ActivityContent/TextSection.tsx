@@ -15,7 +15,7 @@ export default class TextSection implements IActivitySection {
     get(): any {
         return (
             <>
-                {this.title && <h1>{this.title}</h1>}
+                {this.title && <h2>{this.title}</h2>}
                 <p style={{textAlign: 'justify'}}>{this.text}</p>
             </>
         );
