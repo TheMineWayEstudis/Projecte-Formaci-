@@ -14,7 +14,7 @@ export default class Activity {
         this.content = content;
     }
 
-    // Crea una nova instància de la classe 'Activity' i l'emmagatzema a memoria amb l'índex 'id'
+    // Crea una nova instància de la classe 'Activity' i l'emmagatzema a memòria amb l'índex 'id'
     static create(id: string, name: string, content: ActivityContent): Activity {
         return new Activity(id, name, content);
     }
