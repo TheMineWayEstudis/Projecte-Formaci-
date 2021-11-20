@@ -22,6 +22,7 @@ export class ActivityContent {
                 {
                     this.content.map((c: IActivitySection) => c.get())
                 }
+                <Divider/>
             </>
         );
     }

@@ -9,20 +9,21 @@ import TextSection from "./TextSection";
 export default class TextWithMediaSection implements IActivityContent {
     textComponent: TextSection;
     media: IMedia;
-    title?: string;
+    customWidth?: number;
 
-    constructor(textComponent: TextSection, media: IMedia) {
+    constructor(textComponent: TextSection, media: IMedia, customWidth?: number) {
         this.media = media;
         this.textComponent = textComponent;
+        this.customWidth = customWidth;
     }
 
     get(): any {
         return (
             <Row gutter={24}>
-                <Col md={12}>
+                <Col md={this.customWidth === undefined ? 12 : this.customWidth}>
                     {this.textComponent.get()}
                 </Col>
-                <Col md={12}>
+                <Col>
                     {this.media.get()}
                 </Col>
             </Row>

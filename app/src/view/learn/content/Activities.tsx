@@ -1,5 +1,6 @@
 import Activity from "./Activity";
 import { ActivityContent } from "./ActivityContent";
+import ListSection from "./ActivityContent/ListSection";
 import ImageMediaSection from "./ActivityContent/Media/ImageMediaSection";
 import TextSection from "./ActivityContent/TextSection";
 import TextWithMediaSection from "./ActivityContent/TextWithMediaSection";
@@ -57,14 +58,41 @@ export default class Activities {
     static get DINAHOSTING_SETUP_Activities(): Activity[] {
         return [
             Activity.create(
-                'SETUP',
-                'Setup',
+                'INTRO',
+                "Introducció",
                 new ActivityContent(
-                    'Instal·lació de WordPress',
-                    '',
+                    'Introducció',
+                    "En aquest mòdul aprendrem a instal·lar el gestor de continguts mitjançant el panell de control de Dinahosting. És el primer pas per tal de poder crear la nostra web per al concurs.",
                     [
-
-                    ]
+                        new ListSection(
+                            [
+                                "Tenir un compte a Dinahosting"
+                            ],
+                            "Requisits",
+                            true,
+                        )
+                    ],
+                ),
+            ),
+            Activity.create(
+                'SETUP',
+                "Instal·lació de WordPress",
+                new ActivityContent(
+                    'Instal·lació del gestor de continguts',
+                    "A continuació veurem com podem instal·lar el gestor de continguts WordPress mitjançant les eines del panell d'administració de Dinahosting.",
+                    [
+                        new TextWithMediaSection(
+                            new TextSection(
+                                "Accedim al nostre compte de Dinahosting. Un cop haguem iniciat sessió, hauriem d'apareixer a la web 'https://panel.dinahosting.com'.\n" +
+                                "Localitzem el menú de navegació superior i accedim a 'Hosting'.\n"+
+                                "Un cop hem accedit a hosting, veiem una serie de serveis disponibles per al seu us (correu, FTP, Bases de dades, dominis, apps autoinstal·lables, etc). Per ara nomès farem cas de la secció d'apps autoinstal·lables que ens permetrà instal·lar WordPress sense massa complicacions.",
+                            ),
+                            new ImageMediaSection(
+                                '',
+                            ),
+                            16,
+                        ),
+                    ],
                 ),
             ),
         ];
