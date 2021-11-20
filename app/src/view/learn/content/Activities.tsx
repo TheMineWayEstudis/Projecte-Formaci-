@@ -34,7 +34,7 @@ export default class Activities {
                 'Servei FTP',
                 new ActivityContent(
                     'Primeres passes amb el servei FTP',
-                    'El servei FTP (File Transfer Protocol) permet realitzar transferencies de fitxers. En aquest cas ens pot servir per realitzar pujades al nostre servidor.',
+                    'El servei FTP (File Transfer Protocol) permet realitzar transferències de fitxers. En aquest cas ens pot servir per realitzar pujades al nostre servidor.',
                     [
                         new TextSection(
                             '...',
@@ -86,38 +86,38 @@ export default class Activities {
                     "A continuació veurem com podem instal·lar el gestor de continguts WordPress mitjançant les eines del panell d'administració de Dinahosting.",
                     [
                         new TextSection(
-                            "Accedim al nostre compte de Dinahosting. Un cop haguem iniciat sessió, hauriem d'apareixer a la web 'https://panel.dinahosting.com'.\n" +
+                            "Accedim al nostre compte de Dinahosting. Un cop haguem iniciat sessió, hauríem d'aparèixer a la web 'https://panel.dinahosting.com'.\n" +
                             "Localitzem el menú de navegació superior i accedim a 'Hosting'.\n"+
-                            "Un cop hem accedit a hosting, veiem una serie de serveis disponibles per al seu us (correu, FTP, Bases de dades, dominis, apps autoinstal·lables, etc). Per ara nomès farem cas de la secció d'apps autoinstal·lables que ens permetrà instal·lar WordPress sense massa complicacions.",
+                            "Un cop hem accedit a hosting, veiem una sèrie de serveis disponibles per al seu ús (correu, FTP, Bases de dades, dominis, apps autoinstal·lables, etc). Per ara nomès farem cas de la secció d'apps autoinstal·lables que ens permetrà instal·lar WordPress sense massa complicacions.",
                         ),
                         new TextWithMediaSection(
                             new MultiTextSection(
                                 [
                                     new TextSection(
-                                        "Accedim a 'Apps autoinstal·lables'.\nVeurem un llistat d'aplicacions que podem instal·lar al nostre hosting. Busquem la opció de WordPress i premem sobre 'Configurar'." +
+                                        "Accedim a 'Apps autoinstal·lables'.\nVeurem un llistat d'aplicacions que podem instal·lar al nostre hosting. Busquem l'opció de WordPress i premem sobre 'Configurar'." +
                                         " Se'ns mostrarà un diàleg on haurem d'introduir una sèrie de dades.",
                                     ),
                                     new TextSection(
-                                        "En aquesta secció haurem de marcar la opció 'Instal·lar a l'arrel del hosting'. Ignorem l'avís que ens mostra el formulari.",
+                                        "En aquesta secció haurem de marcar l'opció 'Instal·lar a l'arrel del hosting'. Ignorarem l'avís que ens mostra el formulari.",
                                         "Lloc d'instal·lació"
                                     ),
                                     new TextSection(
-                                        "Aquí haurem d'indicar el nom del lloc web i l'idioma d'instal·lació. Encara que es pot modificar més tard, us recomano que penseu bé el nom i us assegureu de que no hi han errades tipogràfiques.",
+                                        "Aquí haurem d'indicar el nom del lloc web i l'idioma d'instal·lació. Encara que es pot modificar més tard, us recomano que penseu bé el nom i us assegureu de que no hi ha errades tipogràfiques.",
                                         "Dades bàsiques"
                                     ),
                                     new TextSection(
-                                        "Deixem sense marcar la opció del 'multisite'.",
+                                        "Deixem sense marcar l'opció del 'multisite'.",
                                     ),
                                     new TextSection(
-                                        "Introduïrem una direcció d'email vàlida (us recomano fer servir la vosta de l'escola). Procureu no posar caràcters especials (espais, accents, etc) al nom d'usuari.",
+                                        "Introduirem una direcció d'email vàlida (us recomano fer servir la vostra de l'escola). Procureu no posar caràcters especials (espais, accents, etc) al nom d'usuari.",
                                         "Dades d'usuari"
                                     ),
                                     new TextSection(
-                                        "Finalment, escriurem una nova contrasenya. Aquesta contrasenya es farà servir per accedir al panell d'administració del WordPress (el panell del WordPress no és el mateix que el de Dinahosting). Enrecordeu-vos de no perdre aquesta contrasenya, ja que si per algún motiu perdeu completament l'accès al panell del WordPress l'haureu de tornar a instal·lar.",
+                                        "Finalment, escriurem una nova contrasenya. Aquesta contrasenya es farà servir per accedir al panell d'administració del WordPress (el panell del WordPress no és el mateix que el de Dinahosting). Recordeu de no perdre aquesta contrasenya, ja que si per algún motiu perdeu completament l'accés al panell del WordPress l'haureu de tornar a instal·lar.",
                                     ),
                                     new AlertSection(
                                         new TextSection(
-                                            "És important que la contrasenya sigui minimament complexa ja que, desafortunadament, hi ha gent amb mala gana que pot fer perillar el vostre web. Tingueu-ho en compte.",
+                                            "És important que la contrasenya sigui mínimament complexa ja que, malauradament, hi ha gent amb males intencions que pot fer perillar la vostra web. Tingueu-ho en compte.",
                                         ),
                                         "warning",
                                         "A tenir en compte"
@@ -170,15 +170,15 @@ export default class Activities {
                 'Recomanacions',
                 new ActivityContent(
                     'Recomanacions',
-                    "Ara que ja hem accedit al panell d'administració del nostre WordPress podem realitzar algunes accions básiques abans de començar a personalitzar el web.",
+                    "Ara que ja hem accedit al panell d'administració del nostre WordPress podem realitzar algunes accions básiques abans de començar a personalitzar la web.",
                     [
                         new TextSection(
-                            "Si pregunteu a qualsevol informàtic, us dirà que sempre heu de procurar d'actualitzar a l'última versió estable totes les aplicaciosn que instal·leu (incloent el vostre Sistema Operatiu). Partint d'això, no podme permetre que el nostre gestor de continguts no estigui actualitzat.",
+                            "Si pregunteu a qualsevol informàtic, us dirà que sempre heu de procurar d'actualitzar a l'última versió estable totes les aplicacions que instal·leu (fins i tot el vostre Sistema Operatiu). Partint d'això, no podeu permetre que el nostre gestor de continguts no estigui actualitzat.",
                             "Actualitzacions",
                         ),
                         new TextSection(
-                            "Si accediu al panell d'administració del WordPress trobareu un menú lateral amb diverses opcions. Dins de la secció 'Inici' hi trobem la opció 'Actualitzacions'. Si hi accedim, veurem la pàgina de gestió d'actualitzacions." +
-                            "Al principi és molt probable que apareguin plugins i temes sense actualitzar. Si decidim que volem actualitzar-los, hem de seleccionar els components a actualitzar (des la taula que es mostra) i premer el botó amb el text 'Actualitzar plugins' (si volem actualitzar plugins) o 'Actualitzar temes' (si volem actualitzar els temes del lloc).",
+                            "Si accediu al panell d'administració del WordPress trobareu un menú lateral amb diverses opcions. Dins de la secció 'Inici' hi trobem l'opció 'Actualitzacions'. Si hi accedim, veurem la pàgina de gestió d'actualitzacions." +
+                            "Al principi és molt probable que apareguin plugins i temes sense actualitzar. Si decidim que volem actualitzar-los, hem de seleccionar els components a actualitzar (des de la taula que es mostra) i prémer el botó amb el text 'Actualitzar plugins' (si volem actualitzar plugins) o 'Actualitzar temes' (si volem actualitzar els temes del lloc).",
                         ),
                     ],
                 ),
