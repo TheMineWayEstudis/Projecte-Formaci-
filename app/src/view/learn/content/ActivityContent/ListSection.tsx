@@ -1,4 +1,4 @@
-import { Checkbox } from "antd";
+import { Checkbox, Col, Row } from "antd";
 import IActivityContent from "./IActivitySection";
 
 export default class ListSection implements IActivityContent {
@@ -21,16 +21,18 @@ export default class ListSection implements IActivityContent {
     get() {
         if (this.checkable) {
             return (
-                <>
+                <Row>
                     {this.title && this.getTitle()}
                     {this.list.map((e: string) => {
                         return (
-                            <Checkbox>
-                                {e}
-                            </Checkbox>
+                            <Col span={24}>
+                                <Checkbox>
+                                    {e}
+                                </Checkbox>
+                            </Col>
                         )
                     })}
-                </>
+                </Row>
             );
         }
 

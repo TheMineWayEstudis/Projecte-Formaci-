@@ -9,11 +9,11 @@ function App() {
   if (learningPath == null) {
     // L'usuari no ha escollit una ruta d'aprenentatge per tant hem de mostrar la llista de rutes d'aprenentatge
     return (
-      <Row gutter={24}>
+      <Row gutter={[24,24]}>
         {
           Object.keys(LearningPaths.values).map((id: string) => {
             return (
-              <Col sm={24} xl={6} style={{ width: '100%' }}>
+              <Col sm={24} xl={8} style={{ width: '100%' }}>
                 <Card hoverable onClick={() => {
                   setLearningPath(id);
                 }}>

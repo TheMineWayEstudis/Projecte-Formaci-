@@ -87,6 +87,7 @@ export default function LearnComponent(props: {back: () => void, learningPath: s
     function setProgress(n: number): void {
         CookiesService.setOrUpdate(`LearningPathProgress_${learningPath}`, n || 0);
         LearningPaths.updateProgress(learningPath, n);
+        window.scrollTo(0,0);
         setCurrentActivity(n);
     }
 }

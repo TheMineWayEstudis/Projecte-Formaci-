@@ -6,7 +6,7 @@ export default function ActivityComponent(activity: Activity, next: () => void, 
         <Card hoverable>
             {activity.content.getActivity()}
             <Button onClick={previous}>{"Anterior"}</Button>
-            <Button onClick={next}>{isLast ? "Finalitzar" : "Seguent"}</Button>
+            <Button onClick={next}>{isLast ? "Finalitzar" : "Següent"}</Button>
         </Card>
     )
 }

@@ -17,7 +17,7 @@ export class ActivityContent {
         return (
             <>
                 <h1 style={{fontWeight: 'bold'}}>{this.title}</h1>
-                <p>{this.description}</p>
+                <p style={{textAlign: 'justify'}}>{this.description}</p>
                 <Divider/>
                 {
                     this.content.map((c: IActivitySection) => c.get())
