@@ -1,7 +1,8 @@
 import Activity from "./Activity";
 import { ActivityContent } from "./ActivityContent";
+import ImageMediaSection from "./ActivityContent/Media/ImageMediaSection";
 import TextSection from "./ActivityContent/TextSection";
-import TextWithImageSection from "./ActivityContent/TextWithImageSection";
+import TextWithMediaSection from "./ActivityContent/TextWithMediaSection";
 
 export default class Activities {
     static get F1Activities(): Activity[] {
@@ -11,10 +12,15 @@ export default class Activities {
                 'Primeres passes',
                 new ActivityContent(
                     'Instal·lació del gestor de continguts',
-                    'Començem realitzant la instal·lació del gestor de continguts des la web de Wapps.',
+                    'En aquest mòdul aprendrem a instal·lar el gestor de continguts partint de zero.',
                     [
-                        new TextSection(
-                            '...',
+                        new TextWithMediaSection(
+                            new TextSection(
+                                'Prim',
+                            ),
+                            new ImageMediaSection(
+                                '',
+                            ),
                         ),
                     ],
                 ),

@@ -1,17 +1,18 @@
 import { Col, Row, Image } from "antd";
 import IActivityContent from "./IActivitySection";
+import IMedia from "./Media/IMedia";
 import TextSection from "./TextSection";
 
 /**
  * Es fa servir per crear seccions de text
  */
-export default class TextWithImageSection implements IActivityContent {
+export default class TextWithMediaSection implements IActivityContent {
     textComponent: TextSection;
-    imageUrl: string;
+    media: IMedia;
     title?: string;
 
-    constructor(textComponent: TextSection, imageUrl: string) {
-        this.imageUrl = imageUrl;
+    constructor(textComponent: TextSection, media: IMedia) {
+        this.media = media;
         this.textComponent = textComponent;
     }
 
@@ -22,7 +23,7 @@ export default class TextWithImageSection implements IActivityContent {
                     {this.textComponent.get()}
                 </Col>
                 <Col md={12}>
-                    <Image src={this.imageUrl} width="100%"/>
+                    {this.media.get()}
                 </Col>
             </Row>
         );
