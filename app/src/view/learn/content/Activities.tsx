@@ -5,11 +5,11 @@ import TextSection from "./ActivityContent/TextSection";
 import TextWithMediaSection from "./ActivityContent/TextWithMediaSection";
 
 export default class Activities {
-    static get F1Activities(): Activity[] {
+    static get F1_Activities(): Activity[] {
         return [
             Activity.create(
                 'install-0',
-                'Primeres passes',
+                'Instal·lació de WordPress',
                 new ActivityContent(
                     'Instal·lació del gestor de continguts',
                     'En aquest mòdul aprendrem a instal·lar el gestor de continguts partint de zero.',
@@ -26,7 +26,7 @@ export default class Activities {
                 ),
             ),
             Activity.create(
-                'install-1',
+                'FTP-0',
                 'Servei FTP',
                 new ActivityContent(
                     'Primeres passes amb el servei FTP',
@@ -39,16 +39,32 @@ export default class Activities {
                 ),
             ),
             Activity.create(
-                'install-2',
+                'components-0',
                 'Components de  WordPress',
                 new ActivityContent(
-                    'Primeres passes amb el servei FTP',
-                    'El servei FTP (File Transfer Protocol) permet realitzar transferencies de fitxers. En aquest cas ens pot servir per realitzar pujades al nostre servidor.',
+                    '...',
+                    '...',
                     [
                         new TextSection(
                             '...',
                         ),
                     ],
+                ),
+            ),
+        ];
+    }
+
+    static get DINAHOSTING_SETUP_Activities(): Activity[] {
+        return [
+            Activity.create(
+                'SETUP',
+                'Setup',
+                new ActivityContent(
+                    'Instal·lació de WordPress',
+                    '',
+                    [
+
+                    ]
                 ),
             ),
         ];

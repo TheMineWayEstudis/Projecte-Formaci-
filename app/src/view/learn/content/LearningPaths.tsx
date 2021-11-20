@@ -5,10 +5,15 @@ import Activity from "./Activity";
 export default class LearningPaths {
     static get values(): {[id: string]: {name: string, activities: Activity[], progress: number}} {
         return {
+            'DINAHOSTING_SETUP': {
+                name: "Instal·lar WordPress mitjançant Dinahosting",
+                activities: Activities.DINAHOSTING_SETUP_Activities,
+                progress: Math.floor((this.getProgress('DINAHOSTING_SETUP') * 100) / Activities.DINAHOSTING_SETUP_Activities.length),
+            },
             'F1': {
                 name: "Instal·lació de WordPress",
-                activities: Activities.F1Activities,
-                progress: Math.floor((this.getProgress('F1') * 100) / Activities.F1Activities.length),
+                activities: Activities.F1_Activities,
+                progress: Math.floor((this.getProgress('F1') * 100) / Activities.F1_Activities.length),
             },
         }
     }

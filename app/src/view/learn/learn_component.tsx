@@ -1,5 +1,5 @@
 import { LeftOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Row, Progress, Modal, Popconfirm } from 'antd'
+import { Button, Col, Row, Modal, Popconfirm } from 'antd'
 import React, { useState } from 'react'
 import CookiesService from '../../services/cookies_service';
 import ActivityComponent from './activity/activity_component'
@@ -7,38 +7,15 @@ import Activity from './content/Activity';
 import LearningPaths from './content/LearningPaths';
 import ProgressComponent from './progress/progress';
 
-export default function LearnComponent() {
-    const [percent, setPercent]: any = useState(0);
+export default function LearnComponent(props: {back: () => void, learningPath: string}) {
+    const {
+        back,
+        learningPath
+    } = props;
 
-    const [learningPath, setLearningPath]: any = useState(null);
     const [currentActivity, setCurrentActivity]: any = useState(null);
 
-    let activities: Activity[] = [];
-
-    if (!learningPath) {
-        // L'usuari no ha escollit una ruta d'aprenentatge per tant hem de mostrar la llista de rutes d'aprenentatge
-        return (
-            <Row gutter={24}>
-                {
-                    Object.keys(LearningPaths.values).map((id: string) => {
-                        return (
-                            <Col sm={24} xl={6} style={{ width: '100%' }}>
-                                <Card hoverable onClick={() => {
-                                    setCurrentActivity(null);
-                                    setLearningPath(id);
-                                }}>
-                                    <h2 style={{ textAlign: 'center' }}>{LearningPaths.values[id].name}</h2>
-                                    <Progress percent={LearningPaths.values[id].progress} />
-                                </Card>
-                            </Col>
-                        );
-                    })
-                }
-            </Row>
-        );
-    }
-
-    activities = Activity.getActivities(learningPath);
+    let activities: Activity[] = Activity.getActivities(learningPath);
 
     if (currentActivity == null) {
         // Primera vegada
@@ -50,7 +27,7 @@ export default function LearnComponent() {
         <>
             <Row gutter={[24, 24]}>
                 <Col sm={24} style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                    <Button onClick={() => { setLearningPath(null) }}>
+                    <Button onClick={() => { back(); }}>
                         <LeftOutlined />
                         {" Enrere"}
                     </Button>
@@ -62,7 +39,7 @@ export default function LearnComponent() {
                         onConfirm={() => {
                             LearningPaths.updateProgress(learningPath, 0, true);
                             CookiesService.setOrUpdate(`LearningPathProgress_${learningPath}`, 0);
-                            setLearningPath(null);
+                            back();
                         }}
                     >
                         <Button danger>
@@ -71,7 +48,7 @@ export default function LearnComponent() {
                     </Popconfirm>
                 </Col>
                 <Col sm={24} xl={6} style={{ width: '100%' }}>
-                    {ProgressComponent(activities, currentActivity, setProgress, percent)}
+                    {ProgressComponent(activities, currentActivity!, setProgress, 0)}
                 </Col>
                 <Col sm={24} xl={18} style={{ width: '100%' }}>
                     {ActivityComponent(activity(), next, previous, activity().id === activities[activities.length - 1].id)}
@@ -94,7 +71,7 @@ export default function LearnComponent() {
                 content: '',
                 title: 'Has completat la ruta d\'aprenentatge amb èxit',
                 okText: 'Tornar a les rutes d\'aprenentatge',
-                onOk: () => { setLearningPath(null) }
+                onOk: () => { back(); }
             });
             return;
         }
@@ -110,7 +87,6 @@ export default function LearnComponent() {
     function setProgress(n: number): void {
         CookiesService.setOrUpdate(`LearningPathProgress_${learningPath}`, n || 0);
         LearningPaths.updateProgress(learningPath, n);
-        setPercent(0);
         setCurrentActivity(n);
     }
 }

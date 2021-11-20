@@ -20,7 +20,6 @@ export default class Activity {
     }
 
     public static getActivities(learningPath: string): Activity[] {
-        if (!this.activities) this.activities = LearningPaths.values[learningPath].activities;
-        return this.activities;
+        return LearningPaths.values[learningPath].activities;
     }
 }

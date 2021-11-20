@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import BaseLayout from './view/components/basics/base_layout';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BaseLayout>
+      <App />
+    </BaseLayout>
   </React.StrictMode>,
   document.getElementById('root')
 );
