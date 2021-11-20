@@ -1,21 +1,20 @@
 import { LeftOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Row, Progress, Modal } from 'antd'
 import React, { useState } from 'react'
+import CookiesService from '../../services/cookies_service';
 import ActivityComponent from './activity/activity_component'
 import Activity from './content/Activity';
 import LearningPaths from './content/LearningPaths';
 import ProgressComponent from './progress/progress';
 
 export default function LearnComponent() {
-    const [currentActivity, setCurrentActivity]: any = useState(null);
     const [percent, setPercent]: any = useState(0);
-    const [isPathCompleted, setPathComplete]: any = useState(false);
 
     const [learningPath, setLearningPath]: any = useState(null);
+    const [currentActivity, setCurrentActivity]: any = useState(null);
 
     let activities: Activity[] = [];
 
-    //LearningPaths.updateProgress('F1', 0, true);
     if (!learningPath) {
         // L'usuari no ha escollit una ruta d'aprenentatge per tant hem de mostrar la llista de rutes d'aprenentatge
         return (
@@ -42,7 +41,8 @@ export default function LearnComponent() {
 
     if (currentActivity == null) {
         // Primera vegada
-        setCurrentActivity(0);
+        const num: number = CookiesService.get(`LearningPathProgress_${learningPath}`, 0) as number || 0;
+        setCurrentActivity(num < 0 ? 0 : num);
     }
 
     return (
@@ -63,7 +63,7 @@ export default function LearnComponent() {
                     {ProgressComponent(activities, currentActivity, setProgress, percent)}
                 </Col>
                 <Col sm={24} xl={18} style={{ width: '100%' }}>
-                    {ActivityComponent(activity(), next, previous, activity().id == activities[activities.length - 1].id)}
+                    {ActivityComponent(activity(), next, previous, activity().id === activities[activities.length - 1].id)}
                 </Col>
             </Row>
         </>
@@ -95,6 +95,7 @@ export default function LearnComponent() {
     }
 
     function setProgress(n: number): void {
+        CookiesService.setOrUpdate(`LearningPathProgress_${learningPath}`, n || 0);
         LearningPaths.updateProgress(learningPath, n);
         setPercent(0);
         setCurrentActivity(n);
