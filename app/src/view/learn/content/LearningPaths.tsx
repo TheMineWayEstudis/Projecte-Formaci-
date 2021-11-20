@@ -8,18 +8,22 @@ export default class LearningPaths {
             'DINAHOSTING_SETUP': {
                 name: "Instal·lar WordPress mitjançant Dinahosting",
                 activities: Activities.DINAHOSTING_SETUP_Activities,
-                progress: Math.floor((this.getProgress('DINAHOSTING_SETUP') * 100) / Activities.DINAHOSTING_SETUP_Activities.length),
+                progress: this.getPercentProgress(this.getProgress('DINAHOSTING_SETUP'), Activities.DINAHOSTING_SETUP_Activities.length),
             },
-            'F1': {
-                name: "Instal·lació de WordPress",
+            'FTP': {
+                name: "Ús d'FTP",
                 activities: Activities.F1_Activities,
-                progress: Math.floor((this.getProgress('F1') * 100) / Activities.F1_Activities.length),
+                progress: this.getPercentProgress(this.getProgress('FTP'), Activities.F1_Activities.length),
             },
         }
     }
 
     static getProgress(learningPathId: string): number {
         return CookiesService.get(`LearningPath_${learningPathId}`, 0) as number;
+    }
+
+    static getPercentProgress(n: number, len: number): number {
+        return Math.floor((n * 100) / len);
     }
 
     static updateProgress(learningPathId: string, set: number, bypass?: boolean): number {

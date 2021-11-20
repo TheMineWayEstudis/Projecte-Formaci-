@@ -12,8 +12,8 @@ export default class Activities {
     static get F1_Activities(): Activity[] {
         return [
             Activity.create(
-                'install-0',
-                'Instal·lació de WordPress',
+                'ftp-0',
+                "Ús d'FTP",
                 new ActivityContent(
                     'Instal·lació del gestor de continguts',
                     'En aquest mòdul aprendrem a instal·lar el gestor de continguts partint de zero.',
@@ -25,32 +25,6 @@ export default class Activities {
                             new ImageMediaSection(
                                 '',
                             ),
-                        ),
-                    ],
-                ),
-            ),
-            Activity.create(
-                'FTP-0',
-                'Servei FTP',
-                new ActivityContent(
-                    'Primeres passes amb el servei FTP',
-                    'El servei FTP (File Transfer Protocol) permet realitzar transferències de fitxers. En aquest cas ens pot servir per realitzar pujades al nostre servidor.',
-                    [
-                        new TextSection(
-                            '...',
-                        ),
-                    ],
-                ),
-            ),
-            Activity.create(
-                'components-0',
-                'Components de  WordPress',
-                new ActivityContent(
-                    '...',
-                    '...',
-                    [
-                        new TextSection(
-                            '...',
                         ),
                     ],
                 ),
