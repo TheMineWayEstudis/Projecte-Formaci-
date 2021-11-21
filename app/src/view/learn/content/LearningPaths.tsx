@@ -12,8 +12,13 @@ export default class LearningPaths {
             },
             'FTP': {
                 name: "Ús d'FTP",
-                activities: Activities.F1_Activities,
-                progress: this.getPercentProgress(this.getProgress('FTP'), Activities.F1_Activities.length),
+                activities: Activities.FTP_Activities,
+                progress: this.getPercentProgress(this.getProgress('FTP'), Activities.FTP_Activities.length),
+            },
+            'ADDITIONAL': {
+                name: "Utilitats addicionals",
+                activities: Activities.ADDITIONAL_Activities,
+                progress: this.getPercentProgress(this.getProgress('ADDITIONAL'), Activities.ADDITIONAL_Activities.length),
             },
         }
     }

@@ -10,7 +10,7 @@ import TextSection from "./ActivityContent/TextSection";
 import TextWithMediaSection from "./ActivityContent/TextWithMediaSection";
 
 export default class Activities {
-    static get F1_Activities(): Activity[] {
+    static get FTP_Activities(): Activity[] {
         return [
             Activity.create(
                 'ftp-0',
@@ -164,8 +164,8 @@ export default class Activities {
                     [
                         new ListSection(
                             [
-                                "Tenir un compte a Dinahosting",
-                                "Disposar d'un domini (en teoria tothom disposa d'un automàticament)"
+                                "Tenir un compte a Dinahosting.",
+                                "Disposar d'un domini (en teoria tothom disposa d'un automàticament)."
                             ],
                             "Requisits",
                             true,
@@ -182,7 +182,7 @@ export default class Activities {
                     [
                         new TextSection(
                             "Accedim al nostre compte de Dinahosting. Un cop haguem iniciat sessió, hauríem d'aparèixer a la web 'https://panel.dinahosting.com'.\n" +
-                            "Localitzem el menú de navegació superior i accedim a 'Hosting'.\n"+
+                            "Localitzem el menú de navegació superior i accedim a 'Hosting'.\n" +
                             "Un cop hem accedit a hosting, veiem una sèrie de serveis disponibles per al seu ús (correu, FTP, Bases de dades, dominis, apps autoinstal·lables, etc). Per ara nomès farem cas de la secció d'apps autoinstal·lables que ens permetrà instal·lar WordPress sense massa complicacions.",
                         ),
                         new TextWithMediaSection(
@@ -275,6 +275,192 @@ export default class Activities {
                             "Si accediu al panell d'administració del WordPress trobareu un menú lateral amb diverses opcions. Dins de la secció 'Inici' hi trobem l'opció 'Actualitzacions'. Si hi accedim, veurem la pàgina de gestió d'actualitzacions." +
                             "Al principi és molt probable que apareguin plugins i temes sense actualitzar. Si decidim que volem actualitzar-los, hem de seleccionar els components a actualitzar (des de la taula que es mostra) i prémer el botó amb el text 'Actualitzar plugins' (si volem actualitzar plugins) o 'Actualitzar temes' (si volem actualitzar els temes del lloc).",
                         ),
+                    ],
+                ),
+            )
+        ];
+    }
+
+    static get ADDITIONAL_Activities(): Activity[] {
+        return [
+            Activity.create(
+                "intro",
+                "Introducció",
+                new ActivityContent(
+                    "Introducció",
+                    "En aquest mòdul coneixerem per sobre les utilitats que ens proporciona Dinahosting (a part de fer el hosting del nostre WordPress).",
+                    [
+                        new ListSection(
+                            [
+                                "Tenir un compte de Dinahosting."
+                            ],
+                            "Requisits",
+                            true,
+                        ),
+                    ],
+                ),
+            ),
+            Activity.create(
+                "backup-0",
+                "Còpies de seguretat",
+                new ActivityContent(
+                    "Introducció a les còpies de seguretat",
+                    "Coneixerem que ens permet fer el servei de còpies de seguretat i per què és important fer-lo servir de tant en tant.",
+                    [
+                        new TextSection(
+                            "Com el propi nom ens indica, aquest servei ens permet realitzar còpies de seguretat. Una còpia de seguretat, en poques paraules, guarda l'estat actual d'alguna cosa (en aquest cas, el nostre WordPress). Si en un futur volem que el WordPress torni a l'estat d'una còpia de seguretat, ho podrem fer fàcilment.",
+                        ),
+                        new TextSection(
+                            "Sí. Realitzar còpies de seguretat de tant en tant és molt important. No nomès et protegeixen de companys i companyes amb males intencions, sinó que, en cas de que es produeixi un error fatal al teu WordPress, no perdreu tot el vostre progrès.",
+                            "Realment necessitem fer còpies de seguretat?",
+                        ),
+                        new ListSection(
+                            [
+                                "La instal·lació d'un plugin falla i bloqueja el vostre web.",
+                                "Heu configurat un plugin que fa que la vostra web no funcioni bé. Decidiu desinstal·lar-lo però segueix anant malament.",
+                                "Algún graciòs ha accedit al vostre WordPress i ha esborrat tot el que ha trobat.",
+                                "Heu fet canvis a la configuraciò i, de cop i volta, ja no podeu accedir-hi al WordPress.",
+                            ],
+                            "Casos on us ve bé tenir una còpia de seguretat",
+                        ),
+                        new TextSection(
+                            "Si heu anat fent còpies de seguretat de tant en tant i es produeix algún escenari desafortunat on necessiteu tornar a un estat anterior (per exemple, al WordPress d'ahir) les còpies de seguretat us permetran tornar-hi com si es tractès d'una màquina del temps.",
+                        ),
+                        new AlertSection(
+                            new TextSection(
+                                "No cal que feu una còpia cada 5 minuts. Podríeu realitzar-ne d'una semanalment o quan heu fet molts canvis.",
+                            ),
+                            "info",
+                            "Recomanació",
+                        ),
+                        new AlertSection(
+                            new TextSection(
+                                "Encara que realitzeu còpies de seguretat, si accedeixen al vostre compte de Dinahosting us les poden esborrar. És important que les descarregueu a un USB, Google Drive, etc.",
+                            ),
+                            "warning",
+                            "Avís",
+                        )
+                    ],
+                ),
+            ),
+            Activity.create(
+                "backup-0",
+                "Còpia de seguretat: Dinahosting",
+                new ActivityContent(
+                    "Còpies de seguretat de Dinahosting",
+                    "Aprendrem a restaurar còpies de seguretat realitzades per Dinahosting.",
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Per sort Dinahosting realitza una còpia diaria automàticament de totes les dades que hi tenim als seus servidors (això inclou el WordPress).",
+                                    ),
+                                    new TextSection(
+                                        "Si accedim a l'apartat de 'Backups' situat al menú lateral, accedirem al calendari de còpies de seguretat. En aquest calendari veurem pintats de color blau els dies on Dinahosting ha realitzat una còpia de seguretat. Si volem restaurar, per exmple, la carpeta 'www' (on se situa WordPress), hem de seleccionar el día d'on volem extraure la còpia de seguretat, la carpeta (des de l'apartat 'recursos a recuperar' situat a la dreta) i, finalment, premem sobre 'Restaurar'.",
+                                    ),
+                                    new TextSection(
+                                        "Apareixerà un diàleg on hem d'introduïr la direcció de correu electrònic que fem servir per accedir a Dinahosting. Un cop fet això, el procès de restauració haurà començat.",
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/Backup/Backup_1.PNG'),
+                            ),
+                        ),
+                        new TextSection(
+                            "Sabem que la còpia de seguretat s'ha restaurat quan veiem el següent missatge.",
+                        ),
+                        new ImageMediaSectionNoUrl(
+                            require('../../../resources/Backup/Backup_2.PNG'),
+                        ),
+                        new AlertSection(
+                            new TextSection(
+                                "Encara que aparegui el missatge de que s'ha restaurat la còpia correctament, fins que no rebeu un correu electrònic indicant que s'ha restablert una còpia de seguretat, el procès no haurà acabat. Això pot trigar una bona estona, tingueu paciència.",
+                            ),
+                            "info",
+                            "Informació",
+                        )
+                    ],
+                ),
+            ),
+            Activity.create(
+                "backup-wp-0",
+                "Còpia de seguretat: WordPress",
+                new ActivityContent(
+                    "Còpies de seguretat de WordPress",
+                    "Aprendrem a realitzar còpies de seguretat mitjançant el panell d'administració de WordPress (no és el panell de Dinahosting).",
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Hem après a restaurar còpies mitjançant el gestor de còpies de Dinahosting. Tot i això, WordPress en sí et permet realitzar i restaurar còpies de seguretat mitjançant un plugin molt conegut.",
+                                    ),
+                                    new TextSection(
+                                        "Sense entrar massa en detall sobre els plugins de WordPress aprendrem a instal·lar el plugin de còpies de seguretat 'BackWPup' (el que apareix a la imatge).",
+                                        "Instal·lar el plugin de backups",
+                                    ),
+                                    new TextSection(
+                                        "Accedim a WordPress mitjançant la URL d'inici de sessió 'https://domini.cat/wp-admin' (exemple per a lolin-cafe.cat: 'https://lolin-cafe.cat/wp-admin'). Un cop hem iniciat sessió, ens dirigim a l'apartat 'Plugins' situat al menú laterat esquerra. Localitzem el botó 'Añadir nuevo' (situat a la dreta del títol de la pàgina) i el premem. " +
+                                        "A continuació apareixerà una pàgina amb diversos plugins. Introduïm al cercador de plugins el nom del plugin 'BackWPup - WordPress Backup Plugin'. Un cop trobem el plugin, premem sobre 'Instal·lar ara'. Esperem a que el plugin s'acabi d'instal·lar.",
+                                    ),
+                                    new TextSection(
+                                        "Veurem que, un cop instal·lat, apareix un botó que diu 'Activar'. El premem per tal d'habil·litar el plugin. Al fer-ho se'ns obrirà una pàgina de presentació del plugin.",
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/Backup/Backup_3.PNG'),
+                            ),
+                        ),
+                        new TextSection(
+                            "Aquest plugin ens permet configurar còpies de seguretat de moltes maneres. Per no embolicar la troca, nosaltres configurarem una còpia de seguretat que es guardarà en una carpeta del servidor.",
+                            "Com configurar una còpia de seguretat",
+                        ),
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Accedim a l'apartat de 'BackWPup' situat al menú lateral esquerra. Després, accedim al subapartat 'Tasques' i premem sobre 'Afegir nova'.",
+                                    ),
+                                    new TextSection(
+                                        "Haurem de configurar unes poques opcions (les no mecionades es queden amb el valor per defecte).",
+                                    ),
+                                    new ListSection(
+                                        [
+                                            "Nom de la tasca: escriurem el nom de la tasca. Recomano posar: 'Còpia de seguretat'",
+                                            "Aquesta tasca és...: seleccionem totes les opcions a excepció de 'Comprobació de les taules de la base de dades' (exemple a la imatge)",
+                                            "Destinació de la tasca: seleccionem l'opció 'Còpia de seguretat a carpeta'.",
+                                            "Enviar registre a la direcció de correu electrònic: per defecte hauria d'apareixer el correu de qui va crear el WordPress. Si el correu que apareix no es vostre, escriviu-lo.",
+                                        ],
+                                    ),
+                                    new TextSection(
+                                        "Premem 'Guardar els canvis'.",
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/Backup/Backup_4.PNG'),
+                            ),
+                        ),
+                        new TextSection(
+                            "Si hi accedim de nou a l'apartat 'Tasques', veurem que apareix la nostra tasca.",
+                        ),
+                        new ImageMediaSectionNoUrl(
+                            require('../../../resources/Backup/Backup_5.PNG'),
+                        ),
+                        new TextSection(
+                            "Hem configurat la còpia de seguretat, però no l'hem executada encara. Per fer-ho, situem el cursor sobre la tasca i premem sobre 'Executar ara'. Això iniciarà el procès de còpia de seguretat. " +
+                            "Un cop la còpia finalitzi, la podrem veure desde l'apartat 'Còpies de seguretat'. Us recomano que us les descarregueu. Ho podeu fer prement sobre 'Descarregar'.",
+                        ),
+                        new AlertSection(
+                            new TextSection(
+                                "Cada còpia de seguretat contè una còpia de tots els fitxers que composen el vostre WordPress. Si voleu restablir una còpia de seguretat, heu de copiar el contingut del fitxer al directori de WordPress. Com que és un procès delicat, si no us aclareu podeu consultar als companys d'ASIX.",
+                            ),
+                            "info",
+                            "Informació"
+                        )
                     ],
                 ),
             )
