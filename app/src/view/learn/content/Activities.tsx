@@ -316,12 +316,12 @@ export default class Activities {
                         ),
                         new ListSection(
                             [
-                                "La instal·lació d'un plugin falla i bloqueja el vostre web.",
+                                "La instal·lació d'un plugin falla i bloqueja la vostra web.",
                                 "Heu configurat un plugin que fa que la vostra web no funcioni bé. Decidiu desinstal·lar-lo però segueix anant malament.",
                                 "Algún graciòs ha accedit al vostre WordPress i ha esborrat tot el que ha trobat.",
                                 "Heu fet canvis a la configuraciò i, de cop i volta, ja no podeu accedir-hi al WordPress.",
                             ],
-                            "Casos on us ve bé tenir una còpia de seguretat",
+                            "Casos on us va bé tenir una còpia de seguretat",
                         ),
                         new TextSection(
                             "Si heu anat fent còpies de seguretat de tant en tant i es produeix algún escenari desafortunat on necessiteu tornar a un estat anterior (per exemple, al WordPress d'ahir) les còpies de seguretat us permetran tornar-hi com si es tractès d'una màquina del temps.",
@@ -463,7 +463,82 @@ export default class Activities {
                         )
                     ],
                 ),
-            )
+            ),
+            Activity.create(
+                "bbdd",
+                "Bases de dades",
+                new ActivityContent(
+                    "Bases de dades",
+                    "Coneixerem el servei de Bases de Dades que ofereix Dinahosting.",
+                    [
+                        new TextSection(
+                            "Al panell d'administració de Dinahosting trobem una secció anomenada 'Bases de dades'. Si hi accedim, veurem les dades relatives a les bases de dades que tenim creades.",
+                        ),
+                        new TextSection(
+                            "WordPress necessita una base de dades per funcionar, per això trobem que hi ha una base de dades creada. És molt important no toquetejar aquesta base de dades ja que podem provocar un error fatal.",
+                        ),
+                        new TextSection(
+                            "Si algú per algún motiu algú necessita crear una base de dades, ho pot fer des d'aquesta pàgina. Personalment, no crec que us faci falta.",
+                        ),
+                    ],
+                ),
+            ),
+            Activity.create(
+                "email",
+                "Correus personalitzats",
+                new ActivityContent(
+                    "Correus personalitzats",
+                    "Dinahosting us ofereix un servidor de correu electrònic que podeu fer servir. Aquest servei us permet crear comptes de correu amb el vostre domini (exemple: per al domini lolin-cafe.cat, puc crear-me un compte 'joelcampos@lolin-cafe.cat').",
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Ens dirigim a l'apartat 'Correu' situat al menú lateral del panell d'administració de Dinahosting. Un cop dins, veurem una secció on podem crear el nostre correu electrònic personalitzat. Escollim el nom del correu i la seva contrasenya. Finalment premem sovre 'Crear compte'.",
+                                    ),
+                                    new TextSection(
+                                        "Ara que ja tenim el compte creat, provarem d'iniciar sessió. Per fer-ho ens hem de dirigir a 'https://mail.<el_teu_domini>.cat/correoweb' (exemple de lolin-cafe.cat: 'https://mail.lolin-cafe.cat/correoweb'). No es hem d'espantar si el navegador ens avisa que el certificat no s'ha reconegut, premem sobre continuar/accedir igualment.",
+                                    ),
+                                    new TextSection(
+                                        "Apareixerà un requadre on podrem introduïr les nostres dades d'inici de sessió. Un cop haguem accedit, veurem una interfície molt similar a la dels serveis de correus populars (com Gmail, Outlook, etc). Podem enviar correus i veure'n els que ens han enviat.",
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/Email/Email_1.PNG'),
+                            ),
+                        ),
+                    ],
+                ),
+            ),
+            Activity.create(
+                "logs",
+                "Registres d'activitat",
+                new ActivityContent(
+                    "Registres d'activitat (Logs)",
+                    "Coneixerem on se situen els logs (registre d'activitats) per tal de que pogueu fer registres d'auditoria si és necessari (esperem que no).",
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "El registre d'auditoria de Dinahosting emmagatzema les accions que s'han realitzat al hosting (no enregistra les accions de dins del WordPress). Això ens permet veure qui ha fet que, quan i des d'on. És una eina molt útil en cas de sospitar que algú ha obtingut accès al nostre compte, ja que podem veure totes les accions acompanyades de la direcció IP d'origen.",
+                                    ),
+                                    new TextSection(
+                                        "Podem veure el registre del nostre hosting si ens dirigim a 'Panell d'accès' i accedim al subapartat 'Logs' (des del panell d'administració de Dinahosting).",
+                                    ),
+                                    new TextSection(
+                                        "Un cop haguem accedit, veurem una taula com la de la imatge (amb les nostres accions enregistrades).",
+                                    ),
+                                ]
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/Logs/Logs_1.PNG'),
+                            ),
+                        ),
+                    ],
+                ),
+            ),
         ];
     }
 }
