@@ -6,7 +6,7 @@ export default class LearningPaths {
     static get values(): {[id: string]: {name: string, activities: Activity[], progress: number}} {
         return {
             'DINAHOSTING_SETUP': {
-                name: "Instal·lar WordPress mitjançant Dinahosting",
+                name: "Instal·lar WordPress",
                 activities: Activities.DINAHOSTING_SETUP_Activities,
                 progress: this.getPercentProgress(this.getProgress('DINAHOSTING_SETUP'), Activities.DINAHOSTING_SETUP_Activities.length),
             },
