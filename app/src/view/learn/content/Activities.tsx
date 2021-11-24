@@ -47,8 +47,8 @@ export default class Activities {
                                     ),
                                 ],
                             ),
-                            new ImageMediaSection(
-                                "https://media.istockphoto.com/photos/file-transfer-picture-id172476913",
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/FTP/FTP_0.jpg'),
                             ),
                         ),
                     ],
