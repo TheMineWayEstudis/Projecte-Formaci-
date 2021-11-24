@@ -541,4 +541,20 @@ export default class Activities {
             ),
         ];
     }
+
+    static get WIDGETS_Activities(): Activity[] {
+        return [
+            Activity.create(
+                "intro-0",
+                "Introducció",
+                new ActivityContent(
+                    "Introducció",
+                    "En aquest mòdul aprendrem que són els Widgets i com podem fer-ne us d'alguns",
+                    [
+
+                    ],
+                ),
+            ),
+        ]
+    }
 }
