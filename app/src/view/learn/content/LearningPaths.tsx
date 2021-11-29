@@ -23,7 +23,7 @@ export default class LearningPaths {
             'WIDGETS': {
                 name: "Ús de widgets",
                 activities: Activities.WIDGETS_Activities,
-                progress: this.getPercentProgress(this.getProgress('ADDITIONAL'), Activities.WIDGETS_Activities.length),
+                progress: this.getPercentProgress(this.getProgress('WIDGETS'), Activities.WIDGETS_Activities.length),
             }
         }
     }

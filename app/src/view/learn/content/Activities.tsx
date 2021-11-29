@@ -3,7 +3,6 @@ import { ActivityContent } from "./ActivityContent";
 import AlertSection from "./ActivityContent/AlertSection";
 import DownloadSection from "./ActivityContent/DownloadSection";
 import ListSection from "./ActivityContent/ListSection";
-import ImageMediaSection from "./ActivityContent/Media/ImageMediaSection";
 import ImageMediaSectionNoUrl from "./ActivityContent/Media/ImageMediaSectionNoUrl";
 import MultiTextSection from "./ActivityContent/MultiTextSection";
 import TextSection from "./ActivityContent/TextSection";
@@ -549,12 +548,105 @@ export default class Activities {
                 "Introducció",
                 new ActivityContent(
                     "Introducció",
-                    "En aquest mòdul aprendrem que són els Widgets i com podem fer-ne us d'alguns",
+                    "En aquest mòdul aprendrem que són els Widgets i com podem fer-ne us d'alguns.",
                     [
-
+                        new ListSection(
+                            [
+                                "Un WordPress instal·lat."
+                            ],
+                            "Requisits",
+                            true,
+                        ),
                     ],
                 ),
             ),
-        ]
+            Activity.create(
+                "widgets-intro",
+                "Les bases",
+                new ActivityContent(
+                    "Les bases dels Widgets",
+                    "Coneixerem què són els Widgets i alguns casos d'ús (més endavant veurem on es troben per tal que pogueu fer-los servir).",
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Els Widgets ens permeten inserir elements específics a la nostra web sense necessitat de saber HTML o CSS. WordPress ens permet treballar amb ells de manera molt visual i ens ofereix un repertori ampli (sempre es pot ampliar amb plugins). Tot això aprendrem a fer-ho en aquest mòdul.",
+                                    ),
+                                    new ListSection(
+                                        [
+                                            "Paràgraf: et permet escriure text pla.",
+                                            "Llista: us permet fer llistes (com aquesta).",
+                                            "Imatge: mostra una imatge (tant mitjançant un enllaç o si la pujeu vosaltres).",
+                                            "Arxiu: mostra un fitxer i permet la seva descàrrega.",
+                                            "Video: permet mostrar un video.",
+                                            "Separador: mostra una linea horitzontal que ajuda a separar visualment els elements de la web.",
+                                            "Icones socials: mostra les clàssiques icones que permeten compartir la web via diverses xarxes socials.",
+                                            "YouTube: mostra un video de YouTube (has d'indicar la seva URL)."
+                                        ],
+                                        "Widgets que us poden interessar",
+                                    ),
+                                    new TextSection(
+                                        "Hi han molts més Widgets, però aquests són els que considero que us poden fer més falta."
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/Widgets/Widgets_1.PNG')
+                            ),
+                        ),
+                    ],
+                ),
+            ),
+            Activity.create(
+                "widgets-edit-1",
+                "Implementar un widget",
+                new ActivityContent(
+                    "Implementar el nostre primer widget",
+                    "Aprendrem a implementar el nostre primer widget mitjançant l'editor per defecte de WordPress.",
+                    [
+                        new MultiTextSection(
+                            [
+                                new TextSection(
+                                    "Accedim al nostre panell d'administració de WordPress (\"https://<<nom-de-domini>>.cat/wp-admin\")",
+                                ),
+                                new TextSection(
+                                    "Si volem afegir un widget a una pàgina, hem de dirigir-nos a \"Pàgines\" (situat al menú lateral). Veurem una llista amb les pàgines que tenim al WordPress, hem de premer sobre el nom de la pàgina desitjada.",
+                                    "Com podem afegir un widget a una pàgina?",
+                                ),
+                                new TextWithMediaSection(
+                                    new MultiTextSection(
+                                        [
+                                            new TextSection(
+                                                "Un cop dins l'editor de la pàgina, veurem un botó amb un més (+) situat a la part superior esquerra. Si premem aquest botó veurem una llista amb un munt de Widgets que podem fer servir. " +
+                                                "Aquests widgets els podem arrosegar a la pàgina per tal d'inserir-los. Un cop hem arrosegat d'un apareixen una sèrie de camps que podem emplenar per tal de configurar el widget. Es demanen dades molt bàsiques, si per exemple estem inserint un paràgraf se'ns demanarà el text que volem mostrar, o si és un video ens demanarà l'origen del video (un enllaç o un fitxer)",
+                                            ),
+                                            new TextSection(
+                                                "Per exemple, a la imatge veiem el camp que es demana si inserim el widget de \"YouTube\".",
+                                            ),
+                                        ],
+                                    ),
+                                    new ImageMediaSectionNoUrl(
+                                        require('../../../resources/Widgets/Widgets_2.PNG'),
+                                    ),
+                                ),
+                                new TextSection(
+                                    "Realment el funcionament dels widgets no té massa misteri. Heu de saber que es poden inserir, eliminar i moure. Aquestes dues últimes accions les podeu fer situant el cursor sobre un widget (veureu que apareixen tres punts, si feu clic trobareu diverses opcions).",
+                                ),
+                            ],
+                        ),
+                    ],
+                ),
+            ),
+            Activity.create(
+                "ecomerce",
+                "Widgets de pagament",
+                new ActivityContent(
+                    "Implementant widgets de pagament",
+                    "Aprendrem a inserir widgets que permetin fer compres (no tocarem comptes bancaris ni re sper l'estil).",
+                    [],
+                ),
+            ),
+        ];
     }
 }

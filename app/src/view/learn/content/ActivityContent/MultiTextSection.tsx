@@ -1,5 +1,4 @@
 import IActivitySection from "./IActivitySection";
-import TextSection from "./TextSection";
 
 /**
  * Es fa servir per crear seccions de múltiples text
