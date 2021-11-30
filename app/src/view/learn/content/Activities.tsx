@@ -640,4 +640,79 @@ export default class Activities {
             ),
         ];
     }
+
+    static get PLUGINS_Activities(): Activity[] {
+        return [
+            Activity.create(
+                "intro-plugins",
+                "Ús de plugins",
+                new ActivityContent(
+                    "Introducció als plugins",
+                    "En aquest mòdul aprendrem què són els plugins, com i quan fer-los servir.",
+                    [
+                        new TextSection(
+                            "Un plugin és una espècie de programa que afegeix funcionalitats a WordPress. Aquestes funcionalitats poden ser de molts tipus. Per exemple, podem instal·lar un plugin que ens faciliti la realització de les còpies de seguretat (vist al mòdul d'\"Utilitats addicionals\").",
+                            "Què és un plugin?"
+                        ),
+                        new ListSection(
+                            [
+                                "Un WordPress instal·lat."
+                            ],
+                            "Requisits",
+                            true,
+                        ),
+                    ],
+                ),
+            ),
+            Activity.create(
+                "plugins-install",
+                "Instal·lador de plugins",
+                new ActivityContent(
+                    "Com instal·lar un plugin amb WordPress",
+                    "Aprendrem a instal·lar plugins mitjançant l'instal·Lador de plugins integrat a WordPress.",
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "WordPress incorpora un component que ens permet instal·lar plugins ràpidament sense massa complicacions.",
+                                    ),
+                                    new TextSection(
+                                        "Si volem instal·lar un plugin ens hem de dirigir a l'apartat \"Plugins\" situat al menú lateral esquerra i accedim a \"Afegir nou\" (dins de Plugins). Un cop hagueu accedit veureu una pàgina amb diversos plugins. Obviament, aquests no són tots els plugins que podeu instal·lar, n'hi ha de molts més. Podeu fer servir el cercador situat a la part superior dreta.",
+                                    ),
+                                    new AlertSection(
+                                        new MultiTextSection(
+                                            [
+                                                new TextSection(
+                                                    "Compte amb els plugins que instal·leu. Heu de verificar que els plugins siguin compatibles amb la vostra versió de WordPress. Fer-ho és molt fàcil ja que el propi WordPress t'indica si un plugin és compatible a sota de cada plugin (ha de posar \"Compatible amb la teva versió de WordPress\"). Si instal·leu versions incompatibles poden sorgir problemes de funcionament greus que trenquin el vostre treball.",
+                                                ),
+                                                new TextSection(
+                                                    "També heu de comprovar mínimament que és un plugin fiable. Si veieu que un plugin té moltes estrelles negatives és probable que no sigui un bon plugin.",
+                                                ),
+                                                new TextSection(
+                                                    "Els plugins us poden demanar que us creeu comptes a pàgines externes, que indiqueu el vostre correu, etc. Però, si us demanen informació com un telèfon, número de targeta o altra informació delicada NO la proporcioneu. Si us obliga a proporcionar-la desinstal·leu el plugin (alguns plugins mostren un missatge demanant donacions, això és normal, nomé sheu de dir que no i ja està).",
+                                                ),
+                                            ],
+                                        ),
+                                        "warning",
+                                        "Compte!"
+                                    )
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/plugins/Plugins_1.PNG'),
+                            ),
+                        ),
+                        new ListSection(
+                            [
+                                "BackWPup - WordPress Backup Plugin: permet realitzar còpies de seguretat fàcilment (explico com configurar-lo a l'apartat d'\"Utilitats addicionals\").",
+                                "Contact Form 7: permet mostrar formularis per que les/els visitants de la web proporcionin informació de contacte."
+                            ],
+                            "Plugins que us poden anar bé",
+                        ),
+                    ],
+                ),
+            ),
+        ];
+    }
 }
