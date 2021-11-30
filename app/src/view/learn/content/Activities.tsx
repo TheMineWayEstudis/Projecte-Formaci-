@@ -706,13 +706,91 @@ export default class Activities {
                         new ListSection(
                             [
                                 "BackWPup - WordPress Backup Plugin: permet realitzar còpies de seguretat fàcilment (explico com configurar-lo a l'apartat d'\"Utilitats addicionals\").",
-                                "Contact Form 7: permet mostrar formularis per que les/els visitants de la web proporcionin informació de contacte."
+                                "Forminator: permet mostrar formularis per que les/els visitants de la web proporcionin informació de contacte.",
+                                "Wordfence Security  - Firewall & Malware Scan: és uan espècie d'antivirus per WordPress.",
+                                "All in One SEO: permet configurar fàcilment el SEO per millorar el posicionament de la vostra pàgina.",
+                                "CookiesYes: permet mostrar el clàssic missatge per acceptar les cookies (l'heu de posar, si no la vostra pàgina incompleix el Reglament General de Protecció de Dades).",
                             ],
                             "Plugins que us poden anar bé",
                         ),
                     ],
                 ),
             ),
+            Activity.create(
+                "install-contact-form",
+                "Plugin: Forminator",
+                new ActivityContent(
+                    "Instal·lació de Forminator",
+                    "Aprendrem a instal·lar i fer servir el plugin Forminator. Aquest plugin us permetrà inserir a la vostra web el típic formulari on s'introdueix el correu per permetre que t'enviïn publicitat.",
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Anem a la pàgina d'instal·lació de plugins i busquem \"Forminator\" al cercador de plugins. Un cop se'ns mostrin els resultats localitzem el plugin destijat (el de la imatge). Ens fixem a veure si el plugin és compatible amb el nostre WordPress (hauria de ser-ne).",
+                                    ),
+                                    new TextSection(
+                                        "Premem sobre \"Instal·lar\". El procès d'instal·lació s'iniciarà i, un cop finalitzat, apareixerà el bóto \"Activar\". L'activem prement sobre el botó.",
+                                    ),
+                                    new TextSection(
+                                        "Automàticament se'ns redirigirà a la llista de plugins. Ens fixarem que a la part superior apareix un missatge indicant que el plugin s'ha activat.",
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/plugins/CF_1.PNG'),
+                            ),
+                        ),
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Ara que tenim el plugin instal·lat i activat apareixerà una nova secció al menú lateral de l'esquerra anomenat \"Forminator\". Hi accedim.",
+                                    ),
+                                    new TextSection(
+                                        "Accedim al subapartat \"Escriptori\". Veurem una sèrie d'apartats. Ens dirigim a \"Formularios\" i premem sobre \"Crear\". Per sort, el plugin farà la major part per nosaltres ja que nomès hem d'escollir una plantilla (escollim la que més convenient ens sembli). Ens demanarà que proporcionem un nom, per tant, proporcionarem un nom descriptiu (en el meu cas \"Contacte\").",
+                                    ),
+                                    new TextSection(
+                                        "Ara ja tenim creat el formulari així que premem sobre \"Publicar\" (situat a la dreta) per guardar el formulari.",
+                                    ),
+                                    new TextSection(
+                                        "Un cop hem creat el formulari, ens dirigim a \"Aparença\" > \"Widgets\". Apareixerà un editor (com el de la imatge). Premem sobre el botó de més (+) i busquem \"form\". Apareixerà un widget anomenat \"Formulari\". Un cop localitzat el widget, l'arroseguem al peu de pàgina. Automàticament se'ns mostrarà el formulari que hem creat. Finalment premem sobre \"Actualitzar\" (situat a la part superior dreta).",
+                                        "Com mostrar el formulari",
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/plugins/CF_2.PNG')
+                            ),
+                        ),
+                    ],
+                ),
+            ),
+            Activity.create(
+                "cookies",
+                "Complir el RGPD",
+                new ActivityContent(
+                    "Complir el Reglament General de Protecció de Dades",
+                    "Aprendrem a fer que la nostra web compleixi mínimament amb el RGPD (Reglament General de Protecció de Dades). Per fer-ho instal·larem el plugin \"CookiesYes\".",
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Com hem fet abans amb l'altre plugin, busquem el plugin \"CookiesYes\" (el de la imatge) al cercador de plugins, l'instal·lem i l'activem.",
+                                    ),
+                                    new TextSection(
+                                        "Un cop activat, se'ns redirigirà automàticament a la llista de plugins. Busquem al menú lateral de l'esquerra la secció \"Consentiment de galeta RGPD\". Se'ns mostrarà la plana de configuració del plugin. Per sort, el plugin s'autoconfigura amb unes opcions que ens serveixen, per tant, no ens cal ajustar res.",
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/plugins/RGPD_1.PNG'),
+                            ),
+                        ),
+                    ],
+                ),
+            )
         ];
     }
 }
