@@ -638,15 +638,6 @@ export default class Activities {
                     ],
                 ),
             ),
-            Activity.create(
-                "ecomerce",
-                "Widgets de pagament",
-                new ActivityContent(
-                    "Implementant widgets de pagament",
-                    "Aprendrem a inserir widgets que permetin fer compres (no tocarem comptes bancaris ni re sper l'estil).",
-                    [],
-                ),
-            ),
         ];
     }
 }
