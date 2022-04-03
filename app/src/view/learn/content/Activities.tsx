@@ -852,6 +852,48 @@ export default class Activities {
                     ],
                 ),
             ),
+            Activity.create(
+                'CSS-3',
+                'Primers estils',
+                new ActivityContent(
+                    'Els estils bàsics',
+                    'Aprendrem quins són els estils bàsics que cal conèixer i com aplicar-los.',
+                    [
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        "Per tal d'aplicar estils al nostre fitxer CSS, cal que ens fem dues preguntes: quin estil vull aplicar? a quines etiquetes vull aplicar l'estil?. " +
+                                        "Un cop tenim les idees clares, escrivim l'estil en CSS.",
+                                        'Com aplicar estils'
+                                    ),
+                                    new TextSection(
+                                        'El format dels estil consisteix en la part que identifica a quines etiquetes vull aplicar l\'estil (per exemple nosaltres afectarem a les etiquetes <p>) i quin estil volem aplicar (per exemple farem que el text estigui en negreta).',
+                                    ),
+                                    new TextSection(
+                                        'Escrivim al CSS: p { font-weight: bold; }',
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/CSS/CSS-3.PNG')
+                            ),
+                        ),
+                        new TextWithMediaSection(
+                            new MultiTextSection(
+                                [
+                                    new TextSection(
+                                        'Estem aplicant a l\'etiqueta <p> l\'estil de lletra en negreta. Si per exemple volem aplicar més estils sobre l\'etiqueta <p>, podem fer-ho afegint un altre estil a sota. La imatge mostra un exemple.'
+                                    ),
+                                ],
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/CSS/CSS-4.PNG'),
+                            ),
+                        ),
+                    ],
+                ),
+            ),
         ];
     }
 }
