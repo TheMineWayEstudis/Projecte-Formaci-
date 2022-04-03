@@ -797,12 +797,59 @@ export default class Activities {
     static get CSS_Activities(): Activity[] {
         return [
             Activity.create(
-                'CSS',
-                'CSS',
+                'CSS-1',
+                'Introducció',
                 new ActivityContent(
                     'Introducció a CSS',
                     'En aquest mòdul aprendrem que és CSS i com podem fer-lo servir per estilar documents HTML.',
-                    []
+                    [
+                        new ListSection(
+                            [
+                                "Conèixer les bases d'HTML."
+                            ],
+                            'Requisits',
+                            true,
+                        ),
+                    ],
+                ),
+            ),
+            Activity.create(
+                'CSS-2',
+                'Les bases',
+                new ActivityContent(
+                    'Les bases de CSS',
+                    'Coneixerem que ens permet fer CSS i com aplicar estils a un document HTML.',
+                    [
+                        new TextSection(
+                            'CSS ens permet aplicar estils a documents HTML. Si has fet servir l\'atribut "style" alguna vegada ja hauràs fet servir CSS ja que aquest atribut aplica estils a etiquetes concretes.',
+                        ),
+                        new TextSection(
+                            'Els fulls d\'estil ens permeten definir estils que s\'apliquen a un conjunt d\'etiquetes (definim nosaltres a quines etiquetes volem aplicar l\'estil).',
+                        ),
+                        new TextSection(
+                            'Si volem aplicar estil a un document HTML podem fer-ho de dues maneres: mitjançant CSS intern o extern.',
+                            'Aplicar estil a un HTML',
+                        ),
+                        new TextWithMediaSection(
+                            new TextSection(
+                                'Mitjançant l\'etiqueta "<style>" podem incrustar estils directament al fitxer HTML. L\'etiqueta s\'acostuma a col·locat dins de "<head>". És poc recomanable.',
+                                'CSS intern',
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/CSS/CSS-1.PNG'),
+                            ),
+                        ),
+                        new TextWithMediaSection(
+                            new TextSection(
+                                'Si volem que el CSS estigui en un document diferent al HTML hem de crear un document .css. Ara, aquest document CSS es pot enllaçar amb el document HTML mitjançant <meta href="...ruta al fitxer css..." rel="stylesheet"/>. ' +
+                                'Dins d\'aquest document (el .css) podem escriure estils que s\'aplicaran al document HTML.',
+                                'CSS extern',
+                            ),
+                            new ImageMediaSectionNoUrl(
+                                require('../../../resources/CSS/CSS-2.PNG'),
+                            ),
+                        ),
+                    ],
                 ),
             ),
         ];
