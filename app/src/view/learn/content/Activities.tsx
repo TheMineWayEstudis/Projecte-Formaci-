@@ -883,7 +883,7 @@ export default class Activities {
                             new MultiTextSection(
                                 [
                                     new TextSection(
-                                        'Estem aplicant a l\'etiqueta <p> l\'estil de lletra en negreta. Si per exemple volem aplicar més estils sobre l\'etiqueta <p>, podem fer-ho afegint un altre estil a sota. La imatge mostra un exemple.'
+                                        'Estem aplicant a l\'etiqueta <p> l\'estil de lletra en negreta. Si per exemple volem aplicar més estils sobre l\'etiqueta <p>, podem fer-ho afegint-hi un altre estil a sota. La imatge mostra un exemple.'
                                     ),
                                 ],
                             ),
@@ -891,6 +891,23 @@ export default class Activities {
                                 require('../../../resources/CSS/CSS-4.PNG'),
                             ),
                         ),
+                        new ListSection(
+                            [
+                                'font-weight. Permet ajustar el gruix de la font.',
+                                'font-size. Permet ajustar la mida de la font.',
+                                'text-decoration. Permet ajustar la decoració del text. l\'has de fer servir per subratllar un text.',
+                                'color. Permet modificar el color del text.',
+                                'text-align. Permet ajustar l\'alineació del text.',
+                                'margin. Permet ajustar el marge d\'una etiqueta (es pot configurar individualment cada costat fent servir margin-top, margin-left, etc).',
+                                'padding. Permet afegir espai als costats d \'una etiqueta (es pot configurar individualment cada costat mitjançant padding-top, padding-left, etc).',
+                                'background-color. Permet modificar el color de fons d\'una etiqueta.',
+                                'font-family. Permet definir quin estil de lletra fa servir una etiqueta.',
+                                'border-color. Permet definir el color de la vora.',
+                                'border-style. Permet definir l\'estil de la vora.',
+                                'border-top, border-bottom, border-left, border-right. Permeten definir el gruix de la vora.',
+                            ],
+                            'Llistat dels estils més utilitzats'
+                        )
                     ],
                 ),
             ),
