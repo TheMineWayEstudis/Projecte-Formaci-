@@ -1,6 +1,7 @@
 import { LeftOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Modal, Popconfirm } from 'antd'
-import React, { useState } from 'react'
+import { useState } from 'react'
+import Confetti from 'react-confetti';
 import CookiesService from '../../services/cookies_service';
 import ActivityComponent from './activity/activity_component'
 import Activity from './content/Activity';
@@ -14,6 +15,7 @@ export default function LearnComponent(props: {back: () => void, learningPath: s
     } = props;
 
     const [currentActivity, setCurrentActivity]: any = useState(null);
+    const [hasFinished, setHasFinished] = useState<boolean>(false);
 
     let activities: Activity[] = Activity.getActivities(learningPath);
 
@@ -25,6 +27,9 @@ export default function LearnComponent(props: {back: () => void, learningPath: s
 
     return (
         <>
+            {
+                hasFinished && <Confetti/>
+            }
             <Row gutter={[24, 24]}>
                 <Col sm={24} style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
                     <Button onClick={() => { back(); }}>
@@ -65,13 +70,15 @@ export default function LearnComponent(props: {back: () => void, learningPath: s
         const c = currentActivity || 0;
         if (c + 1 >= activities.length) {
             LearningPaths.updateProgress(learningPath, c + 1);
+            setHasFinished(true);
             Modal.success({
                 centered: true,
                 closable: true,
                 content: '',
                 title: 'Has completat la ruta d\'aprenentatge amb èxit',
                 okText: 'Tornar a les rutes d\'aprenentatge',
-                onOk: () => { back(); }
+                onOk: () => { back(); setHasFinished(false); },
+                onCancel: () => setHasFinished(false)
             });
             return;
         }
