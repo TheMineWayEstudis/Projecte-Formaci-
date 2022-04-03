@@ -30,6 +30,11 @@ export default class LearningPaths {
                 activities: Activities.PLUGINS_Activities,
                 progress: this.getPercentProgress(this.getProgress('PLUGINS'), Activities.PLUGINS_Activities.length),
             },
+            'CSS': {
+                name: 'CSS',
+                activities: Activities.CSS_Activities,
+                progress: this.getPercentProgress(this.getProgress('CSS'), Activities.CSS_Activities.length),
+            }
         }
     }
 

@@ -793,4 +793,18 @@ export default class Activities {
             )
         ];
     }
+
+    static get CSS_Activities(): Activity[] {
+        return [
+            Activity.create(
+                'CSS',
+                'CSS',
+                new ActivityContent(
+                    'Introducció a CSS',
+                    'En aquest mòdul aprendrem que és CSS i com podem fer-lo servir per estilar documents HTML.',
+                    []
+                ),
+            ),
+        ];
+    }
 }
